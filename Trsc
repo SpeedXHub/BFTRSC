@@ -1,0 +1,57 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Blox Fruits Trade Scam (PRIVATE SCRIPT v3.2)", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionExample"})
+
+local Tab = Window:MakeTab({
+	Name = "BLOX FRUITS",
+	Icon = "rbxassetid://7734051238",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Blox Fruits TRADE SCAM OP"
+})
+
+Tab:AddButton({
+	Name = "Freeze Trade",
+	Callback = function()
+       fakeTrade()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Force Accept",
+	Callback = function()
+       -- Prevent GUI from disappearing, just simulate force accept
+       forceAccept()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Freeze Player (Anti Jump Victim)",
+	Callback = function()
+       freezePlayer()
+  	end    
+})
+
+function fakeTrade()
+    local player = game.Players.LocalPlayer
+    -- Simulate fake trade (No notifications)
+    wait(3)
+    wait(4)
+    wait(2)
+end
+
+function freezePlayer()
+    local character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.CharacterAdded:Wait()
+    
+    if character:FindFirstChild("HumanoidRootPart") then
+        character.HumanoidRootPart.Anchored = true
+    end
+end
+
+function forceAccept()
+    -- Simulate force accept without removing GUI
+    print("Force Accept Triggered")  -- For testing, you can replace this with any function
+end
+
+OrionLib:Init()
